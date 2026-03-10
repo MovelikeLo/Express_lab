@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Words</h1>
+    <p>Here is a list of all the words in the dictionary!</p>
+    <% words.forEach(item => { %>
+        <p><%= item[0] %> - <%= item[1] %></p>
+        <p><%= item[2] %></p>
+        <br>
+    <% }) %>
+ 
+</body>
+</html>

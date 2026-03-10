@@ -9,8 +9,14 @@ router.get('/wotd',async (req,res)=>{
     let [word, part, definition] = wordArray;
     res.render('wotd',{word:word,part:part,defn:definition});
 });
-router.get('allwords',(req,res)=>{
-
+router.get('/allwords',async (req,res)=>{
+    const data = await readFile('resources/allWords.txt', 'utf-8');
+    let lines = data.split('\n');
+    let allWords = lines.map(line => {
+        return line.split('\t');
+    });
+    allWords.sort(); // alphabetical by word
+    res.render('allwords', { words: allWords });
 });
 
 let getWordFromDictionary = async () => {
